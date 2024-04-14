@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/semantic.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="ui massive menu">
+        <div class="ui container">
+          <div class="header item">
+            <a href="/" class="link">Home</a>
+          </div>
+          <a class="item"> About Us </a>
+          <a class="item"> Jobs </a>
+          <a class="item"> Locations </a>
+        </div>
+      </div>
+        <div class="ui container">
+        <form action="/add" class="ui form" method="POST">
+          <div class="ui three fields">
+            <div class="feild">
+              <label for="name" class="ui header green">Enter Club Name</label>
+              <input type="text" name="name">
+            </div>
+            <div class="feild">
+              <label for="players" class="ui header green">Enter Club Name</label>
+              <input type="text" name="players">
+            </div>
+            <div class="feild">
+              <label for="coach" class="ui header green">Enter Club Name</label>
+              <input type="text"  name="coach">
+            </div>
+          </div>
+          <div class="ui fluid field">
+            <input type="submit" value="submit" class="ui button green fluid">
+          </div>
+        </form>
+        </div>
+        <table class="ui green table">
+          <thead>
+            <th>Club Name</th>
+            <th>Player </th>
+            <th>Coach</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <% clubs.forEach((club)=>{%>
+              <tr>
+                <td><%- club.name %></td>
+                <td><%- club.players %></td>
+                <td><%-club.coach %></td>
+                <td><a href="/edit/<%-club._id%>" class="ui green button"><i class="edit icon"></i></a></td>
+                <td><a href="/delete/<%-club._id%>" class="ui red button"><i class="minus icon"></i></a></td>
+              </tr>
+            <%}) %>
+          </tbody>
+        </table>
+    </div>
+
+    <script src="/js/semantic.min.js"></script>
+  </body>
+</html>

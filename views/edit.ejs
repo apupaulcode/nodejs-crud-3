@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= club.name %></title>
+    <link rel="stylesheet" href="/css/semantic.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="ui massive menu">
+        <div class="ui container">
+          <div class="header item">
+            <a href="/" class="link">Home</a>
+          </div>
+          <a class="item"> About Us </a>
+          <a class="item"> Jobs </a>
+          <a class="item"> Locations </a>
+        </div>
+      </div>
+        <div class="ui container">
+        <form action="/edit/<%-club._id%>" class="ui form" method="POST">
+          <div class="ui three fields">
+            <div class="feild">
+              <label for="name" class="ui header green">Enter Club Name</label>
+              <input type="text" value="<%- club.name %>" name="name">
+            </div>
+            <div class="feild">
+              <label for="players" class="ui header green">Enter Playre Name</label>
+              <input type="text" value="<%- club.players %>" name="players">
+            </div>
+            <div class="feild">
+              <label for="coach" class="ui header green">Enter Coach Name</label>
+              <input type="text" value="<%- club.coach %>" name="coach">
+            </div>
+          </div>
+          <div class="ui fluid field">
+            <input type="submit" value="submit" class="ui button green fluid">
+          </div>
+        </form>
+        </div>
+    </div>
+
+    <script src="/js/semantic.min.js"></script>
+  </body>
+</html>
